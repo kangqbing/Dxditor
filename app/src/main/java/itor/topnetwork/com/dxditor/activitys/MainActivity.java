@@ -47,7 +47,7 @@ import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView, EchartsrefreshInterface {
     private TextView gj, zc, lx;
     private NavigationView navigationView;
-    private RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView1;
     private RecyclerView.LayoutManager mLayoutManager;
     private DrawerLayout main_drawerlayout;
     private GjAdapter gjAdapter;

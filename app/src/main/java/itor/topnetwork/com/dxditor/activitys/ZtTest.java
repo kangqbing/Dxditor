@@ -99,7 +99,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
             one_title.setVisibility(View.VISIBLE);
             zt_select_ll.setVisibility(View.VISIBLE);
             ab_select_ll.setVisibility(View.VISIBLE);
-            ztsyt_ll.setVisibility(View.VISIBLE);
+           // ztsyt_ll.setVisibility(View.VISIBLE);
 
 
         }
@@ -286,8 +286,8 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                 }, year, month, day);
                 datedialog1.getDatePicker().setMinDate(startDate.getTime());
                 Calendar calendar1 = new GregorianCalendar();
-                if (startDate.getTime() + 6 * 24 * 60 * 60 * 1000 < calendar1.getTime().getTime()) {
-                    datedialog1.getDatePicker().setMaxDate(startDate.getTime() + 6 * 24 * 60 * 60 * 1000);
+                if (startDate.getTime() + 14 * 24 * 60 * 60 * 1000 < calendar1.getTime().getTime()) {
+                    datedialog1.getDatePicker().setMaxDate(startDate.getTime() + 14 * 24 * 60 * 60 * 1000);
                 } else {
                     datedialog1.getDatePicker().setMaxDate(calendar1.getTime().getTime());
                 }

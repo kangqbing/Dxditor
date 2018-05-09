@@ -180,7 +180,7 @@ public class EchartsDataBean {
     public void ztLiveEcharts(String code,String startTime,String endTime) {
         FormBody formBody = new FormBody
                 .Builder()
-                .add("weightsCode", code)//设置参数名称和参数值
+                .add("weightsCode", code)
                 .add("startTime", startTime)
                 .add("endTime", endTime)
                 .build();
@@ -199,13 +199,13 @@ public class EchartsDataBean {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
-                System.out.println("res："+res);
+                //System.out.println("res："+res);
                 try {
                     JSONObject js = new JSONObject(res);
                     if (js.getBoolean("success")) {
                         ArrayList<ZtLiveBean> ZtLiveBeans = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<ZtLiveBean>>() {
                         }.getType());
-                        //System.out.println("ZtLiveBeans.size():"+ZtLiveBeans.size());
+                        System.out.println("坠坨实时数据:"+ZtLiveBeans.size());
                         ArrayList<String> xdata = new ArrayList<String>();
                         for (int i = 0; i < ZtLiveBeans.size(); i++) {
                             String time = ZtLiveBeans.get(i).getTimeStamp().replace("T", " ");

@@ -7,7 +7,7 @@
 <!--onload="createChart('line',{'seriesData':[11,38,91,16,37,7,52,96,85,78,43,47],'xData':['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']})"-->
 <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
 <div id="main"
-     style="float: center;height:290px;"></div>
+     style="float: center;height:280px;"></div>
 <!-- ECharts单文件引入 -->
 <script src="js/echarts.min.js"></script>
 <script type="text/javascript">
@@ -156,8 +156,6 @@ markLine: {
             realtime: true,
            startValue :obj.startValue,
             endValue:obj.endValue,
-            maxValueSpan:80,
-            minValueSpan:10,
             xAxisIndex:0
         }
     ]
@@ -218,8 +216,6 @@ markLine: {
             realtime: false,
             startValue :obj.startValue,
             endValue:obj.endValue,
-            maxValueSpan:80,
-            minValueSpan:10,
 
             xAxisIndex:0
         }

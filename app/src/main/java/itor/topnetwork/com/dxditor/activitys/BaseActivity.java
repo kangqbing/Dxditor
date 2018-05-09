@@ -36,7 +36,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                 finish();
             }
         });
-//修改状态栏
+          //修改状态栏
         setStatusBarColor(this, getResources().getColor(R.color.toolbar_back));
     }
 
