@@ -35,9 +35,9 @@ import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.myview.CircleView;
-import itor.topnetwork.com.dxditor.myview.RaderView;
 import itor.topnetwork.com.dxditor.presenter.MainpagePresenter;
 import itor.topnetwork.com.dxditor.utils.Constants;
+import itor.topnetwork.com.dxditor.utils.ShareReferenceSaver;
 import itor.topnetwork.com.dxditor.view.IMainpageView;
 import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 
@@ -47,7 +47,7 @@ import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 public class MainActivity extends BaseActivity<MainpagePresenter> implements IMainpageView, EchartsrefreshInterface {
     private TextView gj, zc, lx;
     private NavigationView navigationView;
-    private RecyclerView mRecyclerView1;
+    private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private DrawerLayout main_drawerlayout;
     private GjAdapter gjAdapter;
@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     public MainpagePresenter initPresent() {
-        return new MainpagePresenter(this, this);
+        return new MainpagePresenter(this, this,this);
     }
 
     @Override
@@ -68,6 +68,9 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     public void initView() {
+        if(ShareReferenceSaver.getData(MainActivity.this,Constants.SHAREDPREFERENCESIP).equals("")){
+            ShareReferenceSaver.saveData(MainActivity.this,Constants.SHAREDPREFERENCESIP,Constants.ORIGINALIP);
+        }
         back_iv.setVisibility(View.GONE);
 
 
@@ -196,7 +199,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.mine:
-                        startActivity(new Intent(MainActivity.this, RaderView.class));
+                        startActivity(new Intent(MainActivity.this, SeetingActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     /*case R.id.zt_test:

@@ -1,5 +1,7 @@
 package itor.topnetwork.com.dxditor.presenter.bridge;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import itor.topnetwork.com.dxditor.activitys.BridgeActivity;
@@ -20,10 +22,10 @@ public class BridgePresenter extends BasePresenter<BridgeActivity> implements IB
     private BridgeModel bridgeModel;
     private EchartsrefreshInterface er;
 
-    public BridgePresenter(IBridgeActivityView bv, EchartsrefreshInterface er) {
+    public BridgePresenter(Context context,IBridgeActivityView bv, EchartsrefreshInterface er) {
         this.bv = bv;
         this.er = er;
-        this.bridgeModel = new BridgeModel();
+        this.bridgeModel = new BridgeModel(context);
 
     }
 

@@ -1,5 +1,7 @@
 package itor.topnetwork.com.dxditor.presenter.spz;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import itor.topnetwork.com.dxditor.activitys.SPZActivity;
@@ -20,9 +22,9 @@ public class SpzPresenter extends BasePresenter<SPZActivity> implements ISpzPres
     private final SpzModel spzModel;
     private EchartsrefreshInterface er;
 
-    public SpzPresenter(ISpzActivityView pv,EchartsrefreshInterface er) {
+    public SpzPresenter(Context context,ISpzActivityView pv, EchartsrefreshInterface er) {
         this.pv = pv;
-        spzModel = new SpzModel();
+        spzModel = new SpzModel(context);
         this.er=er;
     }
 

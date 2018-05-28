@@ -47,7 +47,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".activitys.ZtTest"
             />
-<activity android:name=".myview.RaderView"/>
+<activity android:name=".activitys.SeetingActivity"/>
     </application>
 
 </manifest>

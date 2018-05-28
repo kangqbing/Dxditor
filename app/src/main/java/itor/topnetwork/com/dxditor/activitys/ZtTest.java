@@ -154,7 +154,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
             public void onPageFinished(WebView view, String url) {
                 //最好在这里调用js代码 以免网页未加载完成
 
-                echartsDataBean.ztLiveEcharts(type_zt,startDateString,endDateString);
+                echartsDataBean.ztLiveEcharts(ZtTest.this,type_zt,startDateString,endDateString);
 
             }
         });
@@ -185,14 +185,14 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
         switch (v.getId()) {
             case R.id.a_zt_but:
                 dialog.show();
-                echartsDataBean.ztLiveEcharts("001_01_01",startDateString,endDateString);
+                echartsDataBean.ztLiveEcharts(ZtTest.this,"001_01_01",startDateString,endDateString);
                 a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_normal));
                 type_zt = "001_01_01";
                 break;
             case R.id.b_zt_but:
                 dialog.show();
-                echartsDataBean.ztLiveEcharts("002_01_01",startDateString,endDateString);
+                echartsDataBean.ztLiveEcharts(ZtTest.this,"002_01_01",startDateString,endDateString);
                 a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_normal));
                 b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 type_zt = "002_01_01";
@@ -281,7 +281,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                             endDay= dayOfMonth+"";
                         }
                         endDateString = year + endMonth +endDay;
-                        echartsDataBean.ztLiveEcharts(type_zt,startDateString,endDateString);
+                        echartsDataBean.ztLiveEcharts(ZtTest.this,type_zt,startDateString,endDateString);
                     }
                 }, year, month, day);
                 datedialog1.getDatePicker().setMinDate(startDate.getTime());

@@ -1,5 +1,7 @@
 package itor.topnetwork.com.dxditor.presenter;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +23,10 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
     private MainpageModel mainpageModel;
     private EchartsrefreshInterface er;
 
-    public MainpagePresenter(IMainpageView iMainpageView,EchartsrefreshInterface er) {
+    public MainpagePresenter(Context context,IMainpageView iMainpageView, EchartsrefreshInterface er) {
         this.iMainpageView = iMainpageView;
         this.er = er;
-        this.mainpageModel = new MainpageModel();
+        this.mainpageModel = new MainpageModel(context);
 
     }
 

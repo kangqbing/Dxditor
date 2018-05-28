@@ -40,7 +40,7 @@ public class BridgeActivity extends BaseActivity<BridgePresenter> implements IBr
     @Override
     public BridgePresenter initPresent() {
 
-        return new BridgePresenter(this, this);
+        return new BridgePresenter(this,this, this);
     }
 
     @Override

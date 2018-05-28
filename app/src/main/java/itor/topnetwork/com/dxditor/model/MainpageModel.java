@@ -1,5 +1,8 @@
 package itor.topnetwork.com.dxditor.model;
 
+import android.app.Activity;
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -19,6 +22,7 @@ import itor.topnetwork.com.dxditor.hybrid.bean.total.Bar;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.Line;
 import itor.topnetwork.com.dxditor.hybrid.bean.total.TotalBean;
 import itor.topnetwork.com.dxditor.utils.Constants;
+import itor.topnetwork.com.dxditor.utils.ShareReferenceSaver;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -38,7 +42,9 @@ public class MainpageModel implements IMainpageModel {
     private List<GjxxBean> gjxxList;
     private ArrayList<QjxxBean> qjxxList;
 
-    public MainpageModel() {
+    private Context context;
+    public MainpageModel(Context context) {
+        this.context=context;
         okHttpClient = new OkHttpClient();
         this.listData = new ArrayList<Gjlb>();
         gson = new Gson();
@@ -55,7 +61,7 @@ public class MainpageModel implements IMainpageModel {
         } else {
             Request request = new Request
                     .Builder()
-                    .url(Constants.getAppDeviceStausCount)
+                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity) context,Constants.SHAREDPREFERENCESIP)+Constants.getAppDeviceStausCount)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -109,7 +115,7 @@ public class MainpageModel implements IMainpageModel {
         } else {
             Request request = new Request
                     .Builder()
-                    .url(Constants.getAppDeviceAlarmProportion)
+                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity)context,Constants.SHAREDPREFERENCESIP)+Constants.getAppDeviceAlarmProportion)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -160,7 +166,7 @@ public class MainpageModel implements IMainpageModel {
         if (!Constants.testData) {
             Request request = new Request
                     .Builder()
-                    .url(Constants.getAppDeviceCount)
+                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity)context,Constants.SHAREDPREFERENCESIP)+Constants.getAppDeviceCount)
                     .build();
             okHttpClient.newCall(request).enqueue(new Callback() {
                 @Override

@@ -36,7 +36,7 @@ public class SPZActivity extends BaseActivity<SpzPresenter> implements View.OnCl
 
     @Override
     public SpzPresenter initPresent() {
-        return new SpzPresenter(this, this);
+        return new SpzPresenter(this,this, this);
     }
 
     @Override

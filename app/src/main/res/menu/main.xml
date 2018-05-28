@@ -55,6 +55,6 @@
         <item
             android:id="@+id/mine"
             android:icon="@drawable/me_1"
-            android:title="我的" />
+            android:title="设置" />
     </group>
 </menu>

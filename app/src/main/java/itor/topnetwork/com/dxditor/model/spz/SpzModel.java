@@ -1,5 +1,8 @@
 package itor.topnetwork.com.dxditor.model.spz;
 
+import android.app.Activity;
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -13,6 +16,7 @@ import itor.topnetwork.com.dxditor.bean.SpzTrend;
 import itor.topnetwork.com.dxditor.bean.SpzWarning;
 import itor.topnetwork.com.dxditor.hybrid.bean.spz.SpzEchartsBean;
 import itor.topnetwork.com.dxditor.utils.Constants;
+import itor.topnetwork.com.dxditor.utils.ShareReferenceSaver;
 import itor.topnetwork.com.dxditor.utils.ValueCallBack;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -32,8 +36,9 @@ public class SpzModel implements ISpzModel {
 
     private ArrayList<SpzWarning> spzWarnings;
     private ArrayList<SpzTrend> spzTrends;
-
-    public SpzModel() {
+private  Context context;
+    public SpzModel(Context context) {
+        this.context=context;
         okHttpClient = new OkHttpClient();
         gson = new Gson();
         spzWarnings = new ArrayList<SpzWarning>();
@@ -62,7 +67,7 @@ public class SpzModel implements ISpzModel {
             Request request = new Request
                     .Builder()
                     //  .post(formBody)
-                    .url(Constants.getAppSoundBarrierNewOneAlarm)
+                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity)context,Constants.SHAREDPREFERENCESIP)+Constants.getAppSoundBarrierNewOneAlarm)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -143,7 +148,7 @@ public class SpzModel implements ISpzModel {
             Request request = new Request
                     .Builder()
                     .post(formBody)
-                    .url(Constants.getAppSoundBarrierInfo)
+                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity)context,Constants.SHAREDPREFERENCESIP)+Constants.getAppSoundBarrierInfo)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {

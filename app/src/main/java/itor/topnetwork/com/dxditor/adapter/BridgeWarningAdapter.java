@@ -104,6 +104,4 @@ public class BridgeWarningAdapter extends RecyclerView.Adapter<BridgeWarningAdap
     public interface OnRecyclerViewItemClickListener {
         void onClick(View view, int position);
     }
-
-    ;
 }

@@ -1,5 +1,7 @@
 package itor.topnetwork.com.dxditor.hybrid.bean;
 
+import android.app.Activity;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -19,6 +21,7 @@ import itor.topnetwork.com.dxditor.hybrid.bean.zt.ZtLiveBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.zt.ZtLiveEchartsBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.zt.ZtTopEchartsBean;
 import itor.topnetwork.com.dxditor.utils.Constants;
+import itor.topnetwork.com.dxditor.utils.ShareReferenceSaver;
 import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -177,7 +180,7 @@ public class EchartsDataBean {
 
     }
 
-    public void ztLiveEcharts(String code,String startTime,String endTime) {
+    public void ztLiveEcharts(Activity a,String code, String startTime, String endTime) {
         FormBody formBody = new FormBody
                 .Builder()
                 .add("weightsCode", code)
@@ -187,9 +190,9 @@ public class EchartsDataBean {
         Request request = new Request
                 .Builder()
                 .post(formBody)
-                .url(Constants.getAppWeightsTrendInfo)
+                .url(Constants.HTTP+ ShareReferenceSaver.getData(a,Constants.SHAREDPREFERENCESIP)+Constants.getAppWeightsTrendInfo)
                 .build();
-
+        System.out.println("url:"+Constants.HTTP+ ShareReferenceSaver.getData(a,Constants.SHAREDPREFERENCESIP)+Constants.getAppWeightsTrendInfo);
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
