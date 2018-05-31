@@ -202,13 +202,13 @@ public class EchartsDataBean {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
-                //System.out.println("res："+res);
+                System.out.println("res："+res);
                 try {
                     JSONObject js = new JSONObject(res);
                     if (js.getBoolean("success")) {
                         ArrayList<ZtLiveBean> ZtLiveBeans = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<ZtLiveBean>>() {
                         }.getType());
-                        System.out.println("坠坨实时数据:"+ZtLiveBeans.size());
+                      //System.out.println("坠坨实时数据:"+ZtLiveBeans.size());
                         ArrayList<String> xdata = new ArrayList<String>();
                         for (int i = 0; i < ZtLiveBeans.size(); i++) {
                             String time = ZtLiveBeans.get(i).getTimeStamp().replace("T", " ");
@@ -246,6 +246,7 @@ public class EchartsDataBean {
                     }
                     ei.refresh("1",gson.toJson(ztLiveEchartsBean));
                 } catch (Exception e) {
+                    System.out.println("异常："+e);
                     e.printStackTrace();
                 }
             }
