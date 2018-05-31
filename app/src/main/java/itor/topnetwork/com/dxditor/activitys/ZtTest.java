@@ -26,6 +26,7 @@ import java.util.Locale;
 
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
+import itor.topnetwork.com.dxditor.utils.Constants;
 import itor.topnetwork.com.dxditor.view.zt.EchartsrefreshInterface;
 
 /**
@@ -114,7 +115,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                 avalue_but.setBackgroundColor(getResources().getColor(R.color.abvalue_but_back_press));
                 bvalue_but.setBackgroundColor(getResources().getColor(R.color.abvalue_but_back_normal));
             }
-            if (type_zt.equals("002_01_01")) {
+            if (type_zt.equals(Constants.ZTNAME2)) {
                 a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_normal));
                 b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
             }
@@ -178,24 +179,24 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
     }
 
     String type_abvalue = "b";
-    String type_zt = "001_01_01";
+    String type_zt = Constants.ZTNAME1;
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.a_zt_but:
                 dialog.show();
-                echartsDataBean.ztLiveEcharts(ZtTest.this,"001_01_01",startDateString,endDateString);
+                echartsDataBean.ztLiveEcharts(ZtTest.this,Constants.ZTNAME1,startDateString,endDateString);
                 a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
                 b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_normal));
-                type_zt = "001_01_01";
+                type_zt = Constants.ZTNAME1;
                 break;
             case R.id.b_zt_but:
                 dialog.show();
-                echartsDataBean.ztLiveEcharts(ZtTest.this,"002_01_01",startDateString,endDateString);
+                echartsDataBean.ztLiveEcharts(ZtTest.this,Constants.ZTNAME2,startDateString,endDateString);
                 a_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_normal));
                 b_zt_but.setBackgroundColor(getResources().getColor(R.color.spz_but_back_press));
-                type_zt = "002_01_01";
+                type_zt = Constants.ZTNAME2;
                 break;
             case R.id.avalue_but:
                 zt_qx_echarts.loadUrl("javascript:createChart('aline'," + datas + ");");
