@@ -192,7 +192,7 @@ public class EchartsDataBean {
                 .post(formBody)
                 .url(Constants.HTTP+ ShareReferenceSaver.getData(a,Constants.SHAREDPREFERENCESIP)+Constants.getAppWeightsTrendInfo)
                 .build();
-        System.out.println("url:"+Constants.HTTP+ ShareReferenceSaver.getData(a,Constants.SHAREDPREFERENCESIP)+Constants.getAppWeightsTrendInfo);
+       // System.out.println("url:"+Constants.HTTP+ ShareReferenceSaver.getData(a,Constants.SHAREDPREFERENCESIP)+Constants.getAppWeightsTrendInfo);
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
