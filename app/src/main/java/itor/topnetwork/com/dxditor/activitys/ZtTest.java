@@ -235,7 +235,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                         }else{
                             startDay= dayOfMonth+"";
                         }
-                        startDateString = year + startMonth +startDay;
+                        startDateString = year+"-" + startMonth+"-" +startDay;
                         start_time_bt.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
 
                     }
@@ -281,7 +281,7 @@ public class ZtTest extends Activity implements View.OnClickListener, Echartsref
                         }else{
                             endDay= dayOfMonth+"";
                         }
-                        endDateString = year + endMonth +endDay;
+                        endDateString = year+"-" + endMonth+"-" +endDay;
                         echartsDataBean.ztLiveEcharts(ZtTest.this,type_zt,startDateString,endDateString);
                     }
                 }, year, month, day);
