@@ -8,7 +8,7 @@
             android:icon="@drawable/home_1"
             android:title="主页" />
     </group>
-    <group
+   <!-- <group
         android:id="@+id/two"
         android:checkableBehavior="single">
         <item
@@ -23,7 +23,7 @@
             android:id="@+id/SPZmanager"
             android:icon="@drawable/zhgz_1"
             android:title="声屏障管理" />
-    </group>
+    </group>-->
     <group
         android:id="@+id/five"
         android:checkableBehavior="single">
@@ -41,7 +41,7 @@
             android:title="线夹管理" />
     </group>-->
 
-    <group
+   <!-- <group
         android:id="@+id/six"
         android:checkableBehavior="single">
         <item
@@ -55,6 +55,6 @@
         <item
             android:id="@+id/mine"
             android:icon="@drawable/me_1"
-            android:title="设置1" />
-    </group>
+            android:title="设置" />
+    </group>-->
 </menu>

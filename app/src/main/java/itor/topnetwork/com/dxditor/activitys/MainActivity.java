@@ -177,14 +177,14 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.brigemanager://桥梁管理
+                  /*  case R.id.brigemanager://桥梁管理
                         startActivity(new Intent(MainActivity.this, BridgeActivity.class));
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.SPZmanager://声屏障管理
                         startActivity(new Intent(MainActivity.this, SPZActivity.class));
                         //main_drawerlayout.closeDrawer(GravityCompat.START);
-                        break;
+                        break;*/
                     /*case R.id.xjmanager://线夹管理
                         startActivity(new Intent(MainActivity.this, XJActivity.class));
                         //main_drawerlayout.closeDrawer(GravityCompat.START);
@@ -194,14 +194,14 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         //startActivity(new Intent(MainActivity.this, ZTActivity.class));
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.GDBmanager://轨道板管理
+                    /*case R.id.GDBmanager://轨道板管理
                         startActivity(new Intent(MainActivity.this, GDBActivity.class));
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.mine:
                         startActivity(new Intent(MainActivity.this, SeetingActivity.class));
                         main_drawerlayout.closeDrawer(GravityCompat.START);
-                        break;
+                        break;*/
                     /*case R.id.zt_test:
 
                         //main_drawerlayout.closeDrawer(GravityCompat.START);
