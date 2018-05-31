@@ -10,8 +10,8 @@ public class Constants {
 
     public static String SHAREDPREFERENCESIP = "IP";
 
-    public static String ORIGINALIP = "36.110.98.226:5280";
-    //public static String ORIGINALIP = "36.110.98.226:5680";
+    public static String ORIGINALIP = "36.110.98.226:5680";
+    //public static String ORIGINALIP = "36.110.98.226:5280";
 
     public static String HTTP = "http://";
     public static String WEBAPPNAME = "/iotr";
@@ -40,9 +40,10 @@ public class Constants {
     public static String MONTH = "2018-03";
 
 
-    public static String ZTNAME1 = "001_01_01";
-
-    public static String ZTNAME2 = "002_01_01";
+    //public static String ZTNAME1 = "001_01_01";
+    //public static String ZTNAME2 = "002_01_01";
+    public static String ZTNAME1 = "ZZ_K200+003_01";
+    public static String ZTNAME2 = "ZZ_K124+344_01";
 
 
 }
