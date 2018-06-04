@@ -6,7 +6,7 @@ package itor.topnetwork.com.dxditor.utils;
  */
 
 public class Constants {
-    public static boolean testData = true;
+    public static boolean testData = false;
 
     public static String SHAREDPREFERENCESIP = "IP";
 

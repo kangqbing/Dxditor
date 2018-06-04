@@ -181,6 +181,7 @@ public class EchartsDataBean {
     }
 
     public void ztLiveEcharts(Activity a,String code, String startTime, String endTime) {
+        getInstance();
         FormBody formBody = new FormBody
                 .Builder()
                 .add("weightsCode", code)

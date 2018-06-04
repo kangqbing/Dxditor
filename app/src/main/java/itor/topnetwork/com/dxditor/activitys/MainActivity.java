@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     public MainpagePresenter initPresent() {
-        return new MainpagePresenter(this, this,this);
+        return new MainpagePresenter(this, this, this);
     }
 
     @Override
@@ -68,8 +68,8 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     public void initView() {
-        if(ShareReferenceSaver.getData(MainActivity.this,Constants.SHAREDPREFERENCESIP).equals("")){
-            ShareReferenceSaver.saveData(MainActivity.this,Constants.SHAREDPREFERENCESIP,Constants.ORIGINALIP);
+        if (ShareReferenceSaver.getData(MainActivity.this, Constants.SHAREDPREFERENCESIP).equals("")) {
+            ShareReferenceSaver.saveData(MainActivity.this, Constants.SHAREDPREFERENCESIP, Constants.ORIGINALIP);
         }
         back_iv.setVisibility(View.GONE);
 

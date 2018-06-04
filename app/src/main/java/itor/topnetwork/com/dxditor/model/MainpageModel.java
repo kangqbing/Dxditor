@@ -106,7 +106,7 @@ public class MainpageModel implements IMainpageModel {
             ArrayList<Apie> apies = new ArrayList<>();
             for (int i = 0; i < gjxxList.size(); i++) {
                 Apie apie = new Apie();
-                apie.setValue(gjxxList.get(i).getTypeProportion());
+                apie.setValue((int)gjxxList.get(i).getTypeProportion());
                 apie.setName(gjxxList.get(i).getTypeName());
                 apies.add(apie);
             }
@@ -132,13 +132,14 @@ public class MainpageModel implements IMainpageModel {
                     try {
                         JSONObject js = new JSONObject(res);
                         if (js.getBoolean("success")) {
+
                             gjxxList = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<GjxxBean>>() {
                             }.getType());
                             MainPieBean mainPieBean = new MainPieBean();
                             ArrayList<Apie> apies = new ArrayList<>();
                             for (int i = 0; i < gjxxList.size(); i++) {
                                 Apie apie = new Apie();
-                                apie.setValue(gjxxList.get(i).getTypeProportion());
+                                apie.setValue((int)(gjxxList.get(i).getTypeProportion()*100));
                                 apie.setName(gjxxList.get(i).getTypeName());
                                 apies.add(apie);
                             }
@@ -177,7 +178,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    //System.out.println("getAppDeviceCount:" + res);
+                    System.out.println("getAppDeviceCount:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
