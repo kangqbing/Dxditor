@@ -90,10 +90,10 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
 
             }
         });
-        mainpageModel.getgjlbData(new ValueCallBack<ArrayList<Gjlb>>() {
+        mainpageModel.getgjlbData(new ValueCallBack<String>() {
             @Override
-            public void onSuccess(ArrayList<Gjlb> gjxxBeans) {
-                iMainpageView.refreshAdapter(gjxxBeans);
+            public void onSuccess(String a) {
+                iMainpageView.refreshAdapter();
             }
 
             @Override

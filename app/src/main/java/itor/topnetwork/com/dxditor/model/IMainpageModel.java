@@ -24,5 +24,5 @@ public interface IMainpageModel {
     //告警列表
     ArrayList<Gjlb> getgjlblist();
     //告警列表
-    void getgjlbData(ValueCallBack<ArrayList<Gjlb>> callBack);
+    void getgjlbData(ValueCallBack<String> callBack);
 }

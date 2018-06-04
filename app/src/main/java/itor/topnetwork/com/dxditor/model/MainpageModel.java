@@ -141,7 +141,8 @@ public class MainpageModel implements IMainpageModel {
                                 Apie apie = new Apie();
                                 apie.setValue((int)(gjxxList.get(i).getTypeProportion()*100));
                                 apie.setName(gjxxList.get(i).getTypeName());
-                                apies.add(apie);
+                                if(apie.getValue()!=0){
+                                apies.add(apie);}
                             }
                             mainPieBean.setPieData(apies);
                             callBack.onSuccess(gson.toJson(mainPieBean));
@@ -275,14 +276,15 @@ public class MainpageModel implements IMainpageModel {
     }
 
     @Override
-    public void getgjlbData(ValueCallBack<ArrayList<Gjlb>> callBack) {
-        ArrayList<Gjlb> list = new ArrayList<>();
-        list.add(new Gjlb("京沪", "K101+345", "线夹", "4601400000000024", "1", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京广", "K564+345", "桥梁", "4601400000000025", "2", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京哈", "K43+345", "声屏障", "4601400000000026", "3", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "轨道板", "4601400000000027", "4", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "器具", "4601400000000027", "5", "2017-11-24 09:23:35"));
+    public void getgjlbData(ValueCallBack<String> callBack) {
+        if(Constants.testData){
+        listData.add(new Gjlb("京沪", "K101+345", "线夹", "4601400000000024", "1", "2017-11-24 09:23:35"));
+        listData.add(new Gjlb("京广", "K564+345", "桥梁", "4601400000000025", "2", "2017-11-24 09:23:35"));
+        listData.add(new Gjlb("京哈", "K43+345", "声屏障", "4601400000000026", "3", "2017-11-24 09:23:35"));
+        listData.add(new Gjlb("京九", "K458+345", "轨道板", "4601400000000027", "4", "2017-11-24 09:23:35"));
+        listData.add(new Gjlb("京九", "K458+345", "器具", "4601400000000027", "5", "2017-11-24 09:23:35"));
+        callBack.onSuccess("");}else {
 
-        callBack.onSuccess(list);
+        }
     }
 }

@@ -1,9 +1,7 @@
 package itor.topnetwork.com.dxditor.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 
 /**
@@ -19,7 +17,7 @@ public interface IMainpageView {
     /**
      * 刷新adapter
      */
-    void refreshAdapter(ArrayList<Gjlb> gjxxBeans);
+    void refreshAdapter();
     /**
      * 设置基础数据
      */

@@ -26,12 +26,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.GjAdapter;
-import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.myview.CircleView;
@@ -273,9 +271,9 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
      * 刷新adapter
      */
     @Override
-    public void refreshAdapter(ArrayList<Gjlb> gjxxBeans) {
+    public void refreshAdapter() {
 
-        gjAdapter.updateData(gjxxBeans);
+        gjAdapter.notifyDataSetChanged();
     }
 
     @Override
