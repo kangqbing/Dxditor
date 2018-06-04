@@ -43,8 +43,9 @@ public class MainpageModel implements IMainpageModel {
     private ArrayList<QjxxBean> qjxxList;
 
     private Context context;
+
     public MainpageModel(Context context) {
-        this.context=context;
+        this.context = context;
         okHttpClient = new OkHttpClient();
         this.listData = new ArrayList<Gjlb>();
         gson = new Gson();
@@ -61,7 +62,7 @@ public class MainpageModel implements IMainpageModel {
         } else {
             Request request = new Request
                     .Builder()
-                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity) context,Constants.SHAREDPREFERENCESIP)+Constants.getAppDeviceStausCount)
+                    .url(Constants.HTTP + ShareReferenceSaver.getData((Activity) context, Constants.SHAREDPREFERENCESIP) + Constants.getAppDeviceStausCount)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -106,16 +107,18 @@ public class MainpageModel implements IMainpageModel {
             ArrayList<Apie> apies = new ArrayList<>();
             for (int i = 0; i < gjxxList.size(); i++) {
                 Apie apie = new Apie();
-                apie.setValue(gjxxList.get(i).getTypeProportion());
+                apie.setValue((int) gjxxList.get(i).getTypeProportion());
                 apie.setName(gjxxList.get(i).getTypeName());
-                apies.add(apie);
+                if ((int) gjxxList.get(i).getTypeProportion() != 0) {
+                    apies.add(apie);
+                }
             }
             mainPieBean.setPieData(apies);
             callBack.onSuccess(gson.toJson(mainPieBean));
         } else {
             Request request = new Request
                     .Builder()
-                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity)context,Constants.SHAREDPREFERENCESIP)+Constants.getAppDeviceAlarmProportion)
+                    .url(Constants.HTTP + ShareReferenceSaver.getData((Activity) context, Constants.SHAREDPREFERENCESIP) + Constants.getAppDeviceAlarmProportion)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -138,9 +141,11 @@ public class MainpageModel implements IMainpageModel {
                             ArrayList<Apie> apies = new ArrayList<>();
                             for (int i = 0; i < gjxxList.size(); i++) {
                                 Apie apie = new Apie();
-                                apie.setValue(gjxxList.get(i).getTypeProportion());
+                                apie.setValue((int) (gjxxList.get(i).getTypeProportion() * 100));
                                 apie.setName(gjxxList.get(i).getTypeName());
-                                apies.add(apie);
+                                if (apie.getValue() != 0) {
+                                    apies.add(apie);
+                                }
                             }
                             mainPieBean.setPieData(apies);
                             callBack.onSuccess(gson.toJson(mainPieBean));
@@ -166,7 +171,7 @@ public class MainpageModel implements IMainpageModel {
         if (!Constants.testData) {
             Request request = new Request
                     .Builder()
-                    .url(Constants.HTTP+ ShareReferenceSaver.getData((Activity)context,Constants.SHAREDPREFERENCESIP)+Constants.getAppDeviceCount)
+                    .url(Constants.HTTP + ShareReferenceSaver.getData((Activity) context, Constants.SHAREDPREFERENCESIP) + Constants.getAppDeviceCount)
                     .build();
             okHttpClient.newCall(request).enqueue(new Callback() {
                 @Override

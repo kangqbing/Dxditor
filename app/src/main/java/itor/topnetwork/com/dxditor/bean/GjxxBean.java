@@ -8,9 +8,9 @@ public class GjxxBean {
     private int typeCode;
     private String typeName;
     private int typeCount;
-    private int typeProportion;
+    private double typeProportion;
 
-    public GjxxBean(int typeCode, String typeName, int typeCount, int typeProportion) {
+    public GjxxBean(int typeCode, String typeName, int typeCount, double typeProportion) {
         this.typeCode = typeCode;
         this.typeName = typeName;
         this.typeCount = typeCount;
@@ -41,11 +41,11 @@ public class GjxxBean {
         this.typeCount = typeCount;
     }
 
-    public int getTypeProportion() {
+    public double getTypeProportion() {
         return typeProportion;
     }
 
-    public void setTypeProportion(int typeProportion) {
+    public void setTypeProportion(double typeProportion) {
         this.typeProportion = typeProportion;
     }
 }
