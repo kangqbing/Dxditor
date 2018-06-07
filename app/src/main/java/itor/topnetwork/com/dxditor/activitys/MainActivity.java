@@ -26,12 +26,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 
 import itor.topnetwork.com.dxditor.R;
 import itor.topnetwork.com.dxditor.adapter.GjAdapter;
-import itor.topnetwork.com.dxditor.bean.Gjlb;
 import itor.topnetwork.com.dxditor.bean.SbxxBean;
 import itor.topnetwork.com.dxditor.hybrid.bean.EchartsDataBean;
 import itor.topnetwork.com.dxditor.myview.CircleView;
@@ -58,7 +56,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     public MainpagePresenter initPresent() {
-        return new MainpagePresenter(this, this,this);
+        return new MainpagePresenter(this, this, this);
     }
 
     @Override
@@ -68,8 +66,8 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     @Override
     public void initView() {
-        if(ShareReferenceSaver.getData(MainActivity.this,Constants.SHAREDPREFERENCESIP).equals("")){
-            ShareReferenceSaver.saveData(MainActivity.this,Constants.SHAREDPREFERENCESIP,Constants.ORIGINALIP);
+        if (ShareReferenceSaver.getData(MainActivity.this, Constants.SHAREDPREFERENCESIP).equals("")) {
+            ShareReferenceSaver.saveData(MainActivity.this, Constants.SHAREDPREFERENCESIP, Constants.ORIGINALIP);
         }
         back_iv.setVisibility(View.GONE);
 
@@ -177,7 +175,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                     case R.id.mainpage:
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-                  /*  case R.id.brigemanager://桥梁管理
+                   /* case R.id.brigemanager://桥梁管理
                         startActivity(new Intent(MainActivity.this, BridgeActivity.class));
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
@@ -194,7 +192,7 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         //startActivity(new Intent(MainActivity.this, ZTActivity.class));
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
-                    /*case R.id.GDBmanager://轨道板管理
+                   /* case R.id.GDBmanager://轨道板管理
                         startActivity(new Intent(MainActivity.this, GDBActivity.class));
                         // main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;
@@ -203,7 +201,6 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
                         main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;*/
                     /*case R.id.zt_test:
-
                         //main_drawerlayout.closeDrawer(GravityCompat.START);
                         break;*/
                 }
@@ -273,14 +270,26 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
      * 刷新adapter
      */
     @Override
-    public void refreshAdapter(ArrayList<Gjlb> gjxxBeans) {
+    public void refreshAdapter() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                gjAdapter.notifyDataSetChanged();
+            }
+        });
 
-        gjAdapter.updateData(gjxxBeans);
     }
 
     @Override
     public void onEmpty() {
 
+    }
+
+    @Override
+    public void onError() {
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
     }
 
 

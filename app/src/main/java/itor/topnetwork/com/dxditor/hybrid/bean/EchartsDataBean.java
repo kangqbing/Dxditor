@@ -203,7 +203,7 @@ public class EchartsDataBean {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
-                //System.out.println("res："+res);
+                System.out.println("res："+res);
                 try {
                     JSONObject js = new JSONObject(res);
                     if (js.getBoolean("success")) {

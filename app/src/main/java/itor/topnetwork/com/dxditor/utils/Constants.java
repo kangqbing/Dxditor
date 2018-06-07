@@ -24,6 +24,9 @@ public class Constants {
     public static String getAppDeviceAlarmProportion =  WEBAPPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataDevice!getAppDeviceAlarmProportion.action";
     //获取铁路线中不同设备数量,铁路线告警数
     public static String getAppDeviceCount = WEBAPPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataDevice!getAppDeviceCount.action";
+    //获取十条告警信息
+    public static String getAppNewAlarmCount = WEBAPPNAME+"/iotrApp/iotrAppDataDevice!getAppNewAlarmCount.action";
+
     //桥梁趋势
     public static String getAppBridgeMonthDisplacementInfo =  WEBAPPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataBridge!getAppBridgeMonthDisplacementInfo.action";
     //桥梁告警

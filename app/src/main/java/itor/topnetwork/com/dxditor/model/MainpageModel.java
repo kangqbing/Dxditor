@@ -6,6 +6,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -74,7 +75,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    System.out.println("getAppDeviceStausCount:" + res);
+                    System.out.println("111111111111111111:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -109,9 +110,7 @@ public class MainpageModel implements IMainpageModel {
                 Apie apie = new Apie();
                 apie.setValue((int) gjxxList.get(i).getTypeProportion());
                 apie.setName(gjxxList.get(i).getTypeName());
-                if ((int) gjxxList.get(i).getTypeProportion() != 0) {
-                    apies.add(apie);
-                }
+                apies.add(apie);
             }
             mainPieBean.setPieData(apies);
             callBack.onSuccess(gson.toJson(mainPieBean));
@@ -130,11 +129,12 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    System.out.println("getAppDeviceAlarmProportion:" + res);
+                    System.out.println("22222222222222222222222:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
                         if (js.getBoolean("success")) {
+
                             gjxxList = gson.fromJson(js.getString("data"), new TypeToken<ArrayList<GjxxBean>>() {
                             }.getType());
                             MainPieBean mainPieBean = new MainPieBean();
@@ -150,7 +150,20 @@ public class MainpageModel implements IMainpageModel {
                             mainPieBean.setPieData(apies);
                             callBack.onSuccess(gson.toJson(mainPieBean));
                         } else {
-                            callBack.onFail("01");
+                            gjxxList.add(new GjxxBean(1, "已恢复", 0, 0));
+                            gjxxList.add(new GjxxBean(2, "已处理", 0, 0));
+                            gjxxList.add(new GjxxBean(0, "告警中", 0, 0));
+                            MainPieBean mainPieBean = new MainPieBean();
+                            ArrayList<Apie> apies = new ArrayList<>();
+                            for (int i = 0; i < gjxxList.size(); i++) {
+                                Apie apie = new Apie();
+                                apie.setValue((int) gjxxList.get(i).getTypeProportion());
+                                apie.setName(gjxxList.get(i).getTypeName());
+                                apies.add(apie);
+                            }
+                            mainPieBean.setPieData(apies);
+                            callBack.onSuccess(gson.toJson(mainPieBean));
+                           // callBack.onFail("01");
                         }
 
                     } catch (Exception e) {
@@ -182,7 +195,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    //System.out.println("getAppDeviceCount:" + res);
+                    System.out.println("33333333333333333333333333:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -269,7 +282,6 @@ public class MainpageModel implements IMainpageModel {
         list.add(new GjxxBean("告警率占比", 20));
         list.add(new GjxxBean("预警率占比", 30));
         list.add(new GjxxBean("突增率占比", 40));
-
         callBack.onSuccess(list);*/
     }
 
@@ -279,14 +291,59 @@ public class MainpageModel implements IMainpageModel {
     }
 
     @Override
-    public void getgjlbData(ValueCallBack<ArrayList<Gjlb>> callBack) {
-        ArrayList<Gjlb> list = new ArrayList<>();
-        list.add(new Gjlb("京沪", "K101+345", "线夹", "4601400000000024", "1", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京广", "K564+345", "桥梁", "4601400000000025", "2", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京哈", "K43+345", "声屏障", "4601400000000026", "3", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "轨道板", "4601400000000027", "4", "2017-11-24 09:23:35"));
-        list.add(new Gjlb("京九", "K458+345", "器具", "4601400000000027", "5", "2017-11-24 09:23:35"));
+    public void getgjlbData(final ValueCallBack<String> callBack) {
+        if (Constants.testData) {
+            listData.add(new Gjlb("京沪", "K101+345", "坠坨", "4601400000000024", "1", "2017-11-24 09:23:35"));
+            listData.add(new Gjlb("京广", "K564+345", "桥梁", "4601400000000025", "2", "2017-11-24 09:23:35"));
+            listData.add(new Gjlb("京哈", "K43+345", "声屏障", "4601400000000026", "3", "2017-11-24 09:23:35"));
+            listData.add(new Gjlb("京九", "K458+345", "轨道板", "4601400000000027", "4", "2017-11-24 09:23:35"));
+            listData.add(new Gjlb("京九", "K458+345", "器具", "4601400000000027", "5", "2017-11-24 09:23:35"));
+            callBack.onSuccess("");
+        } else {
+            Request request = new Request
+                    .Builder()
+                    .url(Constants.HTTP + ShareReferenceSaver.getData((Activity) context, Constants.SHAREDPREFERENCESIP) + Constants.getAppNewAlarmCount)
+                    .build();
 
-        callBack.onSuccess(list);
+            okHttpClient.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String res = response.body().string();
+                    System.out.println("4444444444444444444444:" + res);
+                    try {
+                        JSONObject js = new JSONObject(res);
+                        if (js.getBoolean("success")) {
+                            JSONArray data = js.getJSONArray("data");
+                            for (int i = 0; i < data.length(); i++) {
+                                JSONObject jo = data.getJSONObject(i);
+                                Gjlb gjlb = new Gjlb();
+                                gjlb.setXl(jo.optString("lineName"));
+                                gjlb.setGlb(jo.optString("dk"));
+                                gjlb.setYw(jo.optString("deviceName"));
+                                gjlb.setSb(jo.optString("deviceNo"));
+                                gjlb.setAddColumnA(jo.optInt("addColumnA"));
+                                gjlb.setAddColumnB(jo.optInt("addColumnB"));
+                                gjlb.setType(jo.optString("deviceType") + "");
+                                gjlb.setSj(jo.optString("timestamp"));
+                                listData.add(gjlb);
+
+                            }
+                            callBack.onSuccess("");
+                        } else {
+                            callBack.onFail("");
+                        }
+
+                    } catch (Exception e) {
+                        callBack.onFail("");
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 }

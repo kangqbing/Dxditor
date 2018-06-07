@@ -58,6 +58,8 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             holder.sb_tv.setTextColor(context.getResources().getColor(R.color.zt_text));
             holder.sj_tv.setText(mData.get(position).getSj());
             holder.sj_tv.setTextColor(context.getResources().getColor(R.color.zt_text));
+            holder.a_value.setText(mData.get(position).getAddColumnA()+"");
+            holder.b_value.setText(mData.get(position).getAddColumnB()+"");
         }else if(mData.get(position).getType().equals("2")){
             holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.ql_img));
             holder.xl_tv.setText(mData.get(position).getXl());
@@ -70,6 +72,10 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             holder.sb_tv.setTextColor(context.getResources().getColor(R.color.ql_text));
             holder.sj_tv.setText(mData.get(position).getSj());
             holder.sj_tv.setTextColor(context.getResources().getColor(R.color.ql_text));
+            holder.a_value.setVisibility(View.GONE);
+            holder.a_value_name.setVisibility(View.GONE);
+            holder.b_value.setVisibility(View.GONE);
+            holder.b_value_name.setVisibility(View.GONE);
         }else if(mData.get(position).getType().equals("3")){
             holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.spz_img));
             holder.xl_tv.setText(mData.get(position).getXl());
@@ -82,6 +88,10 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             holder.sb_tv.setTextColor(context.getResources().getColor(R.color.spz_text));
             holder.sj_tv.setText(mData.get(position).getSj());
             holder.sj_tv.setTextColor(context.getResources().getColor(R.color.spz_text));
+            holder.a_value.setVisibility(View.GONE);
+            holder.a_value_name.setVisibility(View.GONE);
+            holder.b_value.setVisibility(View.GONE);
+            holder.b_value_name.setVisibility(View.GONE);
         }else if(mData.get(position).getType().equals("4")){
             holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.gdb_img));
             holder.xl_tv.setText(mData.get(position).getXl());
@@ -94,6 +104,10 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             holder.sb_tv.setTextColor(context.getResources().getColor(R.color.gdb_text));
             holder.sj_tv.setText(mData.get(position).getSj());
             holder.sj_tv.setTextColor(context.getResources().getColor(R.color.gdb_text));
+            holder.a_value.setVisibility(View.GONE);
+            holder.a_value_name.setVisibility(View.GONE);
+            holder.b_value.setVisibility(View.GONE);
+            holder.b_value_name.setVisibility(View.GONE);
         }else if(mData.get(position).getType().equals("5")){
             holder.sb_img_iv.setBackground(context.getResources().getDrawable(R.drawable.rygqj_img));
             holder.xl_tv.setText(mData.get(position).getXl());
@@ -106,6 +120,10 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             holder.sb_tv.setTextColor(context.getResources().getColor(R.color.rygqj_text));
             holder.sj_tv.setText(mData.get(position).getSj());
             holder.sj_tv.setTextColor(context.getResources().getColor(R.color.rygqj_text));
+            holder.a_value.setVisibility(View.GONE);
+            holder.a_value_name.setVisibility(View.GONE);
+            holder.b_value.setVisibility(View.GONE);
+            holder.b_value_name.setVisibility(View.GONE);
         }
 
     }
@@ -123,7 +141,7 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
         TextView yw_tv;
         TextView sb_tv;
         ImageView sb_img_iv;
-        TextView sj_tv;
+        TextView sj_tv,a_value_name,a_value,b_value_name,b_value;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -133,6 +151,10 @@ public class GjAdapter extends RecyclerView.Adapter<GjAdapter.ViewHolder> {
             sb_tv = (TextView) itemView.findViewById(R.id.sbbh_value);
             sb_img_iv =  itemView.findViewById(R.id.sb_img_iv);
             sj_tv = (TextView) itemView.findViewById(R.id.sj_value);
+            a_value_name = (TextView) itemView.findViewById(R.id.a_value_name);
+            a_value = (TextView) itemView.findViewById(R.id.a_value);
+            b_value_name = (TextView) itemView.findViewById(R.id.b_value_name);
+            b_value = (TextView) itemView.findViewById(R.id.b_value);
         }
     }
 

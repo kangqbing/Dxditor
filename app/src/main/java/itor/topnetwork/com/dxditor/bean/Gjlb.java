@@ -12,6 +12,11 @@ public class Gjlb {
     private String sb;
     private String type;
     private String sj;
+    private Integer addColumnA;//A值
+    private Integer addColumnB;//B值
+
+    public Gjlb() {
+    }
 
     public Gjlb(String xl, String glb, String yw, String sb, String type, String sj) {
         this.xl = xl;
@@ -69,5 +74,21 @@ public class Gjlb {
 
     public void setSj(String sj) {
         this.sj = sj;
+    }
+
+    public Integer getAddColumnA() {
+        return addColumnA;
+    }
+
+    public void setAddColumnA(Integer addColumnA) {
+        this.addColumnA = addColumnA;
+    }
+
+    public Integer getAddColumnB() {
+        return addColumnB;
+    }
+
+    public void setAddColumnB(Integer addColumnB) {
+        this.addColumnB = addColumnB;
     }
 }
