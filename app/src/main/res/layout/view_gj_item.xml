@@ -43,7 +43,6 @@
             android:layout_marginLeft="2dp"
             android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/xl_name"
-            android:text="京沪线"
             android:textColor="@color/main_item_value"
             android:textSize="@dimen/main_item_textsize" />
 
@@ -65,29 +64,18 @@
             android:layout_marginLeft="2dp"
             android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/glb_name"
-            android:text="K323+998"
             android:textColor="@color/main_item_value"
             android:textSize="@dimen/main_item_textsize" />
 
-        <TextView
-            android:id="@+id/sb_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="@dimen/main_item_margin_top"
-            android:layout_toRightOf="@id/glb_value"
-            android:text="设备:"
-            android:textColor="@color/main_item_text"
-            android:textSize="@dimen/main_item_textsize" />
+
 
         <TextView
             android:id="@+id/sb_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="@dimen/main_item_margin_top"
-            android:layout_toRightOf="@id/sb_name"
-            android:text="线夹"
+            android:layout_toRightOf="@id/glb_value"
             android:textColor="@color/main_item_value"
             android:textSize="@dimen/main_item_textsize" />
 
@@ -109,20 +97,56 @@
             android:layout_marginLeft="2dp"
             android:layout_marginTop="@dimen/main_item_margin_top"
             android:layout_toRightOf="@id/sbbh_name"
-            android:text="1000101001010000"
             android:textColor="@color/main_item_value"
             android:textSize="@dimen/main_item_textsize" />
-
-
+        <TextView
+            android:id="@+id/a_value_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/sbbh_value"
+            android:layout_below="@id/xl_name"
+            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:text="A值:"
+            android:textColor="@color/main_item_text"
+            android:textSize="@dimen/main_item_textsize" />
+        <TextView
+            android:id="@+id/a_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/xl_name"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:layout_toRightOf="@id/a_value_name"
+            android:textColor="@color/main_item_value"
+            android:textSize="@dimen/main_item_textsize" />
         <TextView
             android:id="@+id/sj_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/sbbh_value"
-            android:layout_marginLeft="7dp"
             android:layout_marginTop="@dimen/main_item_margin_top"
-            android:layout_toRightOf="@id/sbbh_name"
-            android:text="2017-12-12 20:22:22"
+            android:textColor="@color/main_item_value"
+            android:textSize="@dimen/main_item_textsize" />
+        <TextView
+            android:id="@+id/b_value_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/sbbh_value"
+            android:layout_below="@id/sbbh_value"
+            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:text="B值:"
+            android:textColor="@color/main_item_text"
+            android:textSize="@dimen/main_item_textsize" />
+        <TextView
+            android:id="@+id/b_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sbbh_value"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="@dimen/main_item_margin_top"
+            android:layout_toRightOf="@id/b_value_name"
             android:textColor="@color/main_item_value"
             android:textSize="@dimen/main_item_textsize" />
     </RelativeLayout>

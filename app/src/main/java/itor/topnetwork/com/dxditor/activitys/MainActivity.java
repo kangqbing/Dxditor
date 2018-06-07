@@ -272,8 +272,13 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
      */
     @Override
     public void refreshAdapter() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                gjAdapter.notifyDataSetChanged();
+            }
+        });
 
-        gjAdapter.notifyDataSetChanged();
     }
 
     @Override

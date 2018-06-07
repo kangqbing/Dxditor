@@ -14,13 +14,15 @@ public class Constants {
 
     public static String HTTP = "http://";
 
-    public static String APPNAME="/iotr_product";
+    public static String APPNAME="/iotr";
     //首页设备信息
     public static String getAppDeviceStausCount =  APPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataDevice!getAppDeviceStausCount.action";
     //获取设备告警信息占比
     public static String getAppDeviceAlarmProportion =  APPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataDevice!getAppDeviceAlarmProportion.action";
     //获取铁路线中不同设备数量,铁路线告警数
     public static String getAppDeviceCount = APPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataDevice!getAppDeviceCount.action";
+    //获取十条告警信息
+    public static String getAppNewAlarmCount = APPNAME+"/iotrApp/iotrAppDataDevice!getAppNewAlarmCount.action";
     //桥梁趋势
     public static String getAppBridgeMonthDisplacementInfo =  APPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataBridge!getAppBridgeMonthDisplacementInfo.action";
     //桥梁告警
