@@ -23,7 +23,7 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
     private MainpageModel mainpageModel;
     private EchartsrefreshInterface er;
 
-    public MainpagePresenter(Context context,IMainpageView iMainpageView, EchartsrefreshInterface er) {
+    public MainpagePresenter(Context context, IMainpageView iMainpageView, EchartsrefreshInterface er) {
         this.iMainpageView = iMainpageView;
         this.er = er;
         this.mainpageModel = new MainpageModel(context);
@@ -35,17 +35,18 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
         return mainpageModel.getgjlblist();
     }
 
+    //告警信息
     @Override
     public void getGjData() {
         mainpageModel.getGjxxData(new ValueCallBack<String>() {
             @Override
             public void onSuccess(String s) {
-               er.refresh("2",s);
+                er.refresh("2", s);
             }
 
             @Override
             public void onFail(String code) {
-
+                iMainpageView.onError();
             }
         });
     }
@@ -57,6 +58,7 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
 
     @Override
     public void initData() {
+        //设备信息
         mainpageModel.getTestData(new ValueCallBack<List<SbxxBean>>() {
             @Override
             public void onSuccess(List<SbxxBean> sbxxBeans) {
@@ -68,18 +70,19 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
 
             }
         });
-
+//全局信息
         mainpageModel.getQjxxData(new ValueCallBack<String>() {
             @Override
             public void onSuccess(String s) {
-                er.refresh("1",s);
+                er.refresh("1", s);
             }
 
             @Override
             public void onFail(String code) {
-
+                iMainpageView.onError();
             }
         });
+        //
         mainpageModel.getXtpfData(new ValueCallBack<List<GjxxBean>>() {
             @Override
             public void onSuccess(List<GjxxBean> gjxxBeans) {
@@ -90,6 +93,7 @@ public class MainpagePresenter extends BasePresenter<MainActivity> implements IM
 
             }
         });
+        //告警列表
         mainpageModel.getgjlbData(new ValueCallBack<String>() {
             @Override
             public void onSuccess(String a) {

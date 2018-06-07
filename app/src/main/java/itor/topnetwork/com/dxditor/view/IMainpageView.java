@@ -26,4 +26,6 @@ public interface IMainpageView {
 
     void onEmpty();
 
+    void onError();
+
 }

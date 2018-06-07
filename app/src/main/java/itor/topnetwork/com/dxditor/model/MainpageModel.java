@@ -75,7 +75,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    //System.out.println("getAppDeviceStausCount:" + res);
+                    System.out.println("111111111111111111:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -129,7 +129,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                   // System.out.println("getAppDeviceAlarmProportion:" + res);
+                    System.out.println("22222222222222222222222:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -150,6 +150,7 @@ public class MainpageModel implements IMainpageModel {
                             mainPieBean.setPieData(apies);
                             callBack.onSuccess(gson.toJson(mainPieBean));
                         } else {
+
                             callBack.onFail("01");
                         }
 
@@ -182,7 +183,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    //System.out.println("getAppDeviceCount:" + res);
+                    System.out.println("33333333333333333333333333:" + res);
 
                     try {
                         JSONObject js = new JSONObject(res);
@@ -302,7 +303,7 @@ public class MainpageModel implements IMainpageModel {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
-                    System.out.println("getAppNewAlarmCount:" + res);
+                    System.out.println("4444444444444444444444:" + res);
                     try {
                         JSONObject js = new JSONObject(res);
                         if (js.getBoolean("success")) {

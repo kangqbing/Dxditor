@@ -286,6 +286,13 @@ public class MainActivity extends BaseActivity<MainpagePresenter> implements IMa
 
     }
 
+    @Override
+    public void onError() {
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }
+
 
     /**
      * 给 NavigationView 的Menu的分割线 设置高度和颜色

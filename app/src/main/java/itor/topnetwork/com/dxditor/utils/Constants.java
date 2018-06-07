@@ -9,8 +9,10 @@ public class Constants {
     public static boolean testData = false;
 
     public static String SHAREDPREFERENCESIP = "IP";
-
-    public static String ORIGINALIP = "36.110.98.226:5280";
+    //北京
+    //public static String ORIGINALIP = "36.110.98.226:5280";
+    //郑州
+    public static String ORIGINALIP = "36.110.98.226:5680";
 
     public static String HTTP = "http://";
 
