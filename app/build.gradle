@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "itor.topnetwork.com.dxditor"
+        applicationId "itor.topnetwork.com.dxditorzz"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
