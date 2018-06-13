@@ -10,13 +10,13 @@ public class Constants {
 
     public static String SHAREDPREFERENCESIP = "IP";
     //北京
-    //public static String ORIGINALIP = "36.110.98.226:5280";
+    public static String ORIGINALIP = "36.110.98.226:5280/iotr";
     //郑州
-    public static String ORIGINALIP = "36.110.98.226:5680";
+    //public static String ORIGINALIP = "36.110.98.226:5680";
 
     public static String HTTP = "http://";
 
-    public static String APPNAME="/iotr";
+    public static String APPNAME="";
     //首页设备信息
     public static String getAppDeviceStausCount =  APPNAME+"/iotrApp/iotr/iotrApp/iotrAppDataDevice!getAppDeviceStausCount.action";
     //获取设备告警信息占比
